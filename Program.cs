@@ -2,17 +2,29 @@
 
 namespace LabWork
 {
-    // Даний проект є шаблоном для виконання лабораторних робіт
-    // з курсу "Об'єктно-орієнтоване програмування та патерни проектування"
-    // Необхідно змінювати і дописувати код лише в цьому проекті
-    // Відео-інструкції щодо роботи з github можна переглянути 
-    // за посиланням https://www.youtube.com/@ViktorZhukovskyy/videos 
     class Program
     {
         static void Main(string[] args)
         {
-            
-            Console.WriteLine("Hello World!");
+            int choice;
+            Circle circle = new Circle();
+            Ellipsoid ellipsoid = new Ellipsoid();
+            Console.Write("1. Ellipsoid \n2. Circle\n");
+            Console.WriteLine("Enter choice >> "); choice = Convert.ToInt32(Console.ReadLine());
+
+            switch (choice)
+            {
+                case 1:
+                    ellipsoid.FillData();
+                    Console.WriteLine(ellipsoid.ToString());
+                    Console.WriteLine($"Volume of Ellipsoid: {ellipsoid.GetVolume()}");
+                    break;
+                case 2:
+                    circle.FillData();
+                    Console.WriteLine(circle.ToString());
+                    Console.WriteLine($"Volume of Circle: {circle.GetVolume()}");
+                    break;
+            }
         }
     }
 }
