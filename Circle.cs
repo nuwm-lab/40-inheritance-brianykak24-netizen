@@ -12,7 +12,15 @@ namespace LabWork
 
         public Circle()
         {
-            
+            //fill this ctor
+            x_1 = 0;
+            x_2 = 0;
+            x_3 = 0;
+            b_1 = 0;
+            b_2 = 0;
+            b_3 = 0;
+            R = 1;
+               
         }
         public Circle(int x_1, int x_2, int x_3, int b_1, int b_2, int b_3, int R)
         {

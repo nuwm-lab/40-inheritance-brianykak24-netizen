@@ -16,9 +16,11 @@ namespace LabWork
             this.a_3 = a_3;
         }
 
-        public Ellipsoid()
+        public Ellipsoid() : base()
         {
-            
+            this.a_1 = 0;
+            this.a_2 = 0;
+            this.a_3 = 0;
         }
 
         public int GetA_1() { return a_1; }
