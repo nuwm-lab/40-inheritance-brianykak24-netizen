@@ -1,12 +1,10 @@
-﻿using System;
-
-namespace LabWork
+﻿namespace LabWork
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Task.Execute();
+            LabTask.Execute();
         }
     }
 }
