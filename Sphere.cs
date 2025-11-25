@@ -15,6 +15,7 @@ namespace LabWork
             if (r <= 0) throw new ArgumentException("Radius (R) must be positive.");
             this._r = r;
         }
+
         public Sphere() : this(0, 0, 0, 0, 0, 0, 1) { } // Дефолтна сфера
 
         public override double GetVolume()
@@ -24,7 +25,7 @@ namespace LabWork
 
         public override string ToString()
         {
-            double rSquared = R * R;
+            double rSquared = R * R; 
             return $"({X1} - {B1})^2 + ({X2} - {B2})^2 + ({X3} - {B3})^2 = {rSquared}";
         }
 
