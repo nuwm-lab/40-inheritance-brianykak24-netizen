@@ -10,8 +10,6 @@ namespace LabWork
         public double A2 => _a2;
         public double A3 => _a3;
 
-        // Конструктор Ellipsoid, що не приймає R, оскільки він не потрібен для формули еліпсоїда.
-        // Викликаємо базовий конструктор з R=1, оскільки R не використовується в Ellipsoid.ToString/Volume.
         public Ellipsoid(double x1, double x2, double x3, double b1, double b2, double b3, double a1, double a2, double a3)
             : base(x1, x2, x3, b1, b2, b3, 1.0) // Передаємо 1.0 як R до базового класу
         {
