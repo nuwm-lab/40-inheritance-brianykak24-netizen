@@ -1,15 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace LabWork
 {
     public abstract class Shape3D
     {
         // protected поля, спільні для всіх фігур (Центр та Координати)
-        protected double _x1, _x2, _x3, _b1, _b2, _b3;
+        private double _x1, _x2, _x3, _b1, _b2, _b3;
 
         // Public Properties (PascalCase)
         public double X1 => _x1;
