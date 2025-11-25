@@ -12,7 +12,7 @@ namespace LabWork
                 Sphere sphere = new Sphere();
                 Ellipsoid ellipsoid = new Ellipsoid();
                 Console.Write("1. Ellipsoid \n2. Sphere\n");
-                Console.WriteLine("Enter choice >> "); choice = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Enter choice >> "); choice = int.Parse(Console.ReadLine());
                 if (choice < 1 || choice > 2) throw new Exception("Choice must be between 1 and 2.");
                 switch (choice)
                 {
