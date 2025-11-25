@@ -31,7 +31,7 @@ namespace LabWork
         public override string ToString()
         {
             // (x-b1)^2/a1^2 + (y-b2)^2/a2^2 + (z-b3)^2/a3^2 = 1
-            return $"(({X1} - {B1})^2)/({A1 * A1}) + (({X2} - {B2})^2)/({A2 * A2}) + (({X3} - {B3})^2)/({A3 * A3}) = 1";
+            return $"(({X1} - {B1})^2)/({A1 * A1}^2) + (({X2} - {B2})^2)/({A2 * A2}^2) + (({X3} - {B3})^2)/({A3 * A3}) = 1";
         }
 
         public override void FillData()

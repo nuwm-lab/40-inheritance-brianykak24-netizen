@@ -34,14 +34,13 @@ namespace LabWork
         {
             Console.WriteLine("--- Entering Shape3D Base Data ---");
 
-            // Порядок: Центр (B) -> Координати (X)
-            _b1 = GetDoubleInput("Enter B1 (Center X) >>> ");
-            _b2 = GetDoubleInput("Enter B2 (Center Y) >>> ");
-            _b3 = GetDoubleInput("Enter B3 (Center Z) >>> ");
-
             _x1 = GetDoubleInput("Enter X1 (Coordinate X) >>> ");
             _x2 = GetDoubleInput("Enter X2 (Coordinate Y) >>> ");
             _x3 = GetDoubleInput("Enter X3 (Coordinate Z) >>> ");
+
+            _b1 = GetDoubleInput("Enter B1 (Center X) >>> ");
+            _b2 = GetDoubleInput("Enter B2 (Center Y) >>> ");
+            _b3 = GetDoubleInput("Enter B3 (Center Z) >>> ");
         }
 
         // Protected допоміжні методи для вводу (доступні всім похідним)
