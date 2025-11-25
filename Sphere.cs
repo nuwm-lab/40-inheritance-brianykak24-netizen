@@ -16,6 +16,7 @@ namespace LabWork
             this._r = r;
         }
 
+
         public Sphere() : this(0, 0, 0, 0, 0, 0, 1) { } // Дефолтна сфера
 
         public override double GetVolume()
@@ -33,7 +34,7 @@ namespace LabWork
         {
             base.FillData(); 
 
-            Console.WriteLine("--- Entering Sphere-Specific Data ---");
+            Console.WriteLine("<<< Entering Sphere-Specific Data >>>");
             _r = GetPositiveDoubleInput("Enter R (Radius) >>> ");
         }
     }
