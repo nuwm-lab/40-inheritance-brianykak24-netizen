@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LabWork
 {
-    public class Ellipsoid : Circle
+    public class Ellipsoid : Shpere
     {
         private double A_1, A_2, A_3;
         public Ellipsoid(double x_1, double x_2, double x_3, double b_1, double b_2, double b_3, double a_1, double a_2, double a_3, double R = 1)
@@ -35,9 +35,9 @@ namespace LabWork
         {
             base.FillData();
 
-            Console.WriteLine("Enter A_1 >>> "); A_1 = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Enter A_2 >>> "); A_2 = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Enter A_3 >>> "); A_3 = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter A_1 >>> "); A_1 = Double.Parse(Console.ReadLine());
+            Console.WriteLine("Enter A_2 >>> "); A_2 = Double.Parse(Console.ReadLine());
+            Console.WriteLine("Enter A_3 >>> "); A_3 = Double.Parse(Console.ReadLine());
         }
     }
 }
