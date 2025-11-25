@@ -9,7 +9,7 @@ namespace LabWork
             try
             {
                 int choice;
-                Sphere circle = new Sphere();
+                Sphere sphere = new Sphere();
                 Ellipsoid ellipsoid = new Ellipsoid();
                 Console.Write("1. Ellipsoid \n2. Sphere\n");
                 Console.WriteLine("Enter choice >> "); choice = Convert.ToInt32(Console.ReadLine());
@@ -22,9 +22,9 @@ namespace LabWork
                         Console.WriteLine($"Volume of Ellipsoid: {ellipsoid.GetVolume()}");
                         break;
                     case 2:
-                        circle.FillData();
-                        Console.WriteLine(circle.ToString());
-                        Console.WriteLine($"Volume of Sphere: {circle.GetVolume()}");
+                        sphere.FillData();
+                        Console.WriteLine(sphere.ToString());
+                        Console.WriteLine($"Volume of Sphere: {sphere.GetVolume()}");
                         break;
                 }
             }

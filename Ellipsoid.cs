@@ -2,25 +2,25 @@
 
 namespace LabWork
 {
-    public class Ellipsoid : Sphere
+    public class Ellipsoid : Shape3D
     {
         private double _a1, _a2, _a3;
-
         public double A1 => _a1;
         public double A2 => _a2;
         public double A3 => _a3;
 
+        // Конструктор Ellipsoid не приймає R і викликає лише конструктор Shape3D
         public Ellipsoid(double x1, double x2, double x3, double b1, double b2, double b3, double a1, double a2, double a3)
-            : base(x1, x2, x3, b1, b2, b3, 1.0) // Передаємо 1.0 як R до базового класу
+            : base(x1, x2, x3, b1, b2, b3) // Тільки спільні параметри
         {
+            if (a1 <= 0 || a2 <= 0 || a3 <= 0) throw new ArgumentException("All semi-axes (A1, A2, A3) must be positive.");
             this._a1 = a1;
             this._a2 = a2;
             this._a3 = a3;
         }
 
-        public Ellipsoid() : this(1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0)
-        {
-        }
+        // Дефолтний еліпсоїд (сфера з A=1)
+        public Ellipsoid() : this(0, 0, 0, 0, 0, 0, 1, 1, 1) { }
 
         public override double GetVolume()
         {
@@ -31,14 +31,18 @@ namespace LabWork
         public override string ToString()
         {
             // (x-b1)^2/a1^2 + (y-b2)^2/a2^2 + (z-b3)^2/a3^2 = 1
-            return $"(({X1} - {B1})^2)/({A1}^2) + (({X2} - {B2})^2)/({A2}^2) + (({X3} - {B3})^2)/({A3}^2) = 1";
+            return $"(({X1} - {B1})^2)/({A1 * A1}) + (({X2} - {B2})^2)/({A2 * A2}) + (({X3} - {B3})^2)/({A3 * A3}) = 1";
         }
 
         public override void FillData()
         {
-            base.FillData(); // Заповнює X1, B1, R і т.д.
-                             // Заповнює A1, A2, A3 з використанням допоміжного методу GetDoubleInput (якщо він у Sphere є protected або private у Sphere та Ellipsoid є вкладеним)
-                             // Якщо GetDoubleInput - private у Sphere, його потрібно продублювати або зробити protected.
+            base.FillData(); // Викликає ввід X та B
+
+            Console.WriteLine("--- Entering Ellipsoid-Specific Data ---");
+            // Використання валідації на позитивність для півосей
+            _a1 = GetPositiveDoubleInput("Enter A1 (Semi-axis X) >>> ");
+            _a2 = GetPositiveDoubleInput("Enter A2 (Semi-axis Y) >>> ");
+            _a3 = GetPositiveDoubleInput("Enter A3 (Semi-axis Z) >>> ");
         }
     }
 }
