@@ -4,58 +4,74 @@ namespace LabWork
 {
     public class Sphere
     {
-        private double _x1, _x2, _x3, _b1, _b2, _b3, _r;
+        // Приватні поля
+        private double _x1, _x2, _x3, _b1, _b2, _b3;
+        private double _r;
 
-        public Sphere()
+        // Публічні властивості (PascalCase) - тільки для читання
+        public double R => _r;
+        public double X1 => _x1;
+        public double X2 => _x2;
+        public double X3 => _x3;
+        public double B1 => _b1;
+        public double B2 => _b2;
+        public double B3 => _b3;
+
+        /// <summary>Безпараметричний конструктор (дефолтна сфера: центр (1,1,1), радіус 1)</summary>
+        public Sphere() : this(1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0)
         {
-            //fill this ctor
-            this._x1 = 1;
-            this._x2 = 1;
-            this._x3 = 1;
-            this._b1 = 1;
-            this._b2 = 1;
-            this._b3 = 1;
-            this._r = 1;
-
-        }
-        public Sphere(double x_1, double x_2, double x_3, double b_1, double b_2, double b_3, double R)
-        {
-            this._x1 = x_1;
-            this._x2 = x_2;
-            this._x3 = x_3;
-
-            this._b1 = b_1;
-            this._b2 = b_2;
-            this._b3 = b_3;
-            
-            this._r = R;
         }
 
-        public double GetR() { return _r; }
-        public double GetX_1() { return _x1; }
-        public double GetX_2() { return _x2; }
-        public double GetX_3() { return _x3; }
+        /// <summary>Параметризований конструктор</summary>
+        public Sphere(double x1, double x2, double x3, double b1, double b2, double b3, double r)
+        {
+            // Присвоєння приватним полям
+            this._x1 = x1;
+            this._x2 = x2;
+            this._x3 = x3;
 
-        public double GetB_1() { return _b1; }
-        public double GetB_2() { return _b2; }
-        public double GetB_3() { return _b3; }
+            this._b1 = b1;
+            this._b2 = b2;
+            this._b3 = b3;
 
+            this._r = r;
+        }
 
-        public virtual double GetVolume() { return (double)(4.0 / 3.0) * Math.PI * _r * _r * _r; }
-        public override string ToString() {return $"({_x1} - {_b1})^2 - ({_x2} - {_b2})^2 + ({_x3} - {_b3})^2 = ({_r})^2";}
+        // Методи та перевизначення
+        public virtual double GetVolume()
+        {
+            return (4.0 / 3.0) * Math.PI * R * R * R;
+        }
+
+        public override string ToString()
+        {
+            // Використання властивостей
+            return $"({X1} - {B1})^2 + ({X2} - {B2})^2 + ({X3} - {B3})^2 = ({R})^2";
+        }
 
         public virtual void FillData()
         {
-            Console.WriteLine("Enter R >>> "); _r = Double.Parse(Console.ReadLine());
-
-            Console.WriteLine("Enter X_1 >>> "); _x1 = Double.Parse(Console.ReadLine());
-            Console.WriteLine("Enter X_2 >>> "); _x2 = Double.Parse(Console.ReadLine());
-            Console.WriteLine("Enter X_3 >>> "); _x3 = Double.Parse(Console.ReadLine());
-
-            Console.WriteLine("Enter B_1 >>> "); _b1 = Double.Parse(Console.ReadLine());
-            Console.WriteLine("Enter B_2 >>> "); _b2 = Double.Parse(Console.ReadLine());
-            Console.WriteLine("Enter B_3 >>> "); _b3 = Double.Parse(Console.ReadLine());
+            // Реалізація безпечного вводу
+            _r = GetDoubleInput("Enter R >>> ");
+            _x1 = GetDoubleInput("Enter X1 >>> ");
+            _x2 = GetDoubleInput("Enter X2 >>> ");
+            _x3 = GetDoubleInput("Enter X3 >>> ");
+            _b1 = GetDoubleInput("Enter B1 >>> ");
+            _b2 = GetDoubleInput("Enter B2 >>> ");
+            _b3 = GetDoubleInput("Enter B3 >>> ");
         }
 
+        // Допоміжний метод для безпечного вводу
+        private double GetDoubleInput(string prompt)
+        {
+            Console.Write(prompt);
+            double value;
+            while (!double.TryParse(Console.ReadLine(), out value))
+            {
+                Console.WriteLine("Invalid input. Please enter a valid number.");
+                Console.Write(prompt);
+            }
+            return value;
+        }
     }
 }
