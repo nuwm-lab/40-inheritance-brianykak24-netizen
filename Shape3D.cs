@@ -43,6 +43,7 @@ namespace LabWork
         // Protected допоміжні методи для вводу (доступні всім похідним)
         protected double GetDoubleInput(string prompt)
         {
+            Console.WriteLine(prompt);
             double value;
             while (!double.TryParse(Console.ReadLine(), out value))
             {

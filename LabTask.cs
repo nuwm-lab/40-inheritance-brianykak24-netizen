@@ -1,48 +1,49 @@
 ﻿using LabWork;
 using System;
-
-public static class LabTask
+namespace LabWork
 {
-    public static void Execute()
+    public static class LabTask
     {
-        Console.WriteLine("1. Ellipsoid \n2. Sphere\n");
-        int choice;
-
-        while (true)
+        public static void Execute()
         {
-            Console.Write("Enter choice >> ");
-            string input = Console.ReadLine();
+            Console.WriteLine("1. Ellipsoid \n2. Sphere\n");
+            int choice;
 
-            if (int.TryParse(input, out choice) && (choice == 1 || choice == 2))
+            while (true)
             {
-                break; 
+                Console.Write("Enter choice >> ");
+                string input = Console.ReadLine();
+
+                if (int.TryParse(input, out choice) && (choice == 1 || choice == 2))
+                {
+                    break;
+                }
+
+                Console.WriteLine("Incorrect input. Please enter 1 or 2.");
             }
-
-            Console.WriteLine("Incorrect input. Please enter 1 or 2.");
-        }
-
-        try
-        {
-
-            switch (choice)
+            try
             {
-                case 1:
-                    Ellipsoid ellipsoid = new Ellipsoid(); // Створюємо тільки якщо вибрано
-                    ellipsoid.FillData();
-                    Console.WriteLine(ellipsoid.ToString());
-                    Console.WriteLine($"Volume of Ellipsoid: {ellipsoid.GetVolume()}");
-                    break;
-                case 2:
-                    Sphere sphere = new Sphere(); // Створюємо тільки якщо вибрано
-                    sphere.FillData();
-                    Console.WriteLine(sphere.ToString());
-                    Console.WriteLine($"Volume of Sphere: {sphere.GetVolume()}");
-                    break;
+
+                switch (choice)
+                {
+                    case 1:
+                        Ellipsoid ellipsoid = new Ellipsoid(); // Створюємо тільки якщо вибрано
+                        ellipsoid.FillData();
+                        Console.WriteLine(ellipsoid.ToString());
+                        Console.WriteLine($"Volume of Ellipsoid: {ellipsoid.GetVolume()}");
+                        break;
+                    case 2:
+                        Sphere sphere = new Sphere(); // Створюємо тільки якщо вибрано
+                        sphere.FillData();
+                        Console.WriteLine(sphere.ToString());
+                        Console.WriteLine($"Volume of Sphere: {sphere.GetVolume()}");
+                        break;
+                }
             }
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine("Error during calculation: " + e.Message);
+            catch (Exception e)
+            {
+                Console.WriteLine("Error during calculation: " + e.Message);
+            }
         }
     }
 }
