@@ -3,7 +3,6 @@ namespace LabWork
 {
     public abstract class Shape3D
     {
-        // protected поля, спільні для всіх фігур (Центр та Координати)
         private double _x1, _x2, _x3, _b1, _b2, _b3;
 
         // Public Properties (PascalCase)
@@ -25,11 +24,9 @@ namespace LabWork
             this._b3 = b3;
         }
 
-        // Абстрактні методи (повинні бути реалізовані в похідних класах)
         public abstract double GetVolume();
         public abstract override string ToString();
 
-        // Віртуальний метод для вводу спільних даних
         public virtual void FillData()
         {
             Console.WriteLine("--- Entering Shape3D Base Data ---");
@@ -46,12 +43,11 @@ namespace LabWork
         // Protected допоміжні методи для вводу (доступні всім похідним)
         protected double GetDoubleInput(string prompt)
         {
-            Console.Write(prompt);
             double value;
             while (!double.TryParse(Console.ReadLine(), out value))
             {
-                Console.WriteLine("Invalid input. Please enter a valid number.");
-                Console.Write(prompt);
+                Console.WriteLine($"Invalid input. Please enter a valid number. ({prompt})");
+                
             }
             return value;
         }
