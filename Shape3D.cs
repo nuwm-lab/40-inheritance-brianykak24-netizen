@@ -5,7 +5,6 @@ namespace LabWork
     {
         private double _x1, _x2, _x3, _b1, _b2, _b3;
 
-        // Public Properties (PascalCase)
         public double X1 => _x1;
         public double X2 => _x2;
         public double X3 => _x3;
